@@ -1,0 +1,18 @@
+<nav class="main_nav">
+  <ul class="d-flex flex-row align-items-start justify-content-start">
+    <li class="active"><a href="{% url 'travello:home' %}">Home</a></li>
+    <li><a href="{% url 'travello:about' %}">About Us</a></li>
+    <li><a href="{% url 'travello:contact' %}">Contact</a></li>
+
+
+
+    {% if user.is_authenticated %}
+    <li>Hello , {{user.username}}</li>
+    <li><a href="{% url 'accounts:logout' %}">Logout Today</a></li>
+    {% else %}
+    <li><a href="{% url 'accounts:register' %}">Register</a></li>
+    <li><a href="{% url 'accounts:login' %}">Login</a></li>
+    {%endif%}
+
+  </ul>
+</nav>
